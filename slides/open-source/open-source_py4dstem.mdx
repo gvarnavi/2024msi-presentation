@@ -1,0 +1,92 @@
+---
+id: open-source-methods_py4dstem
+sidebar_position: 1
+title: Open-Source Phase Retrieval
+hide_table_of_contents: true
+hide_title: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+import Py4DSTEMImage from '@site/static/img/py4dstem-phase-retrieval.svg';
+import OutlineImageLight from '@site/static/img/outline_slide_light_m1.svg';
+
+import JupyterCell from '@site/src/components/JupyterCell';
+
+<OutlineImageLight width="240px" height="60px" className="outline-header"/>
+
+## Open-Source Phase Retrieval
+
+<Py4DSTEMImage width="100%" height="100%"/>
+
+- Suite of phase retrieval algorithms, including iterative DPC, ptychograpy, and parallax (tc-BF)
+- User-friendly, object-oriented code
+  - Check out our [tutorial notebooks](https://github.com/py4dstem/py4DSTEM_tutorials/tree/main/notebooks) and recent preprint [arXiv:2309.05250](https://arxiv.org/abs/2309.05250)!
+
+<Tabs lazy>
+
+  <TabItem value="data" label="Load Dataset">
+
+<JupyterCell
+  source= {`# import lines
+import numpy as np
+import py4DSTEM
+
+dataset = py4DSTEM.read('ptycho_MoS2_bin2.h5')
+dataset.get_dp_mean();
+
+# plot mean diffraction pattern
+py4DSTEM.show(
+    dataset.tree('dp_mean'),
+    ticks=False,
+    cmap='turbo',
+    power=0.125,
+)`}
+  serverHttpUrl='http://localhost:8686/api/jupyter'
+  serverWsUrl='ws://localhost:8686/api/jupyter'
+  token='60c1661cc408f978c309d04157af55c9588ff9557c9380e4fb50785750703da6'
+ />
+
+  </TabItem>
+
+  <TabItem value="preprocess" label="Preprocessing">
+
+<JupyterCell
+  source= {`# initialize and preprocess
+ptycho = py4DSTEM.process.phase.SingleslicePtychography(
+    datacube=dataset,
+    verbose=False,
+    energy = 80e3,
+    semiangle_cutoff = 21.4,
+    object_type='potential',
+    object_padding_px = (0,0),
+).preprocess(
+    fit_function="constant",
+)`}
+  serverHttpUrl='http://localhost:8686/api/jupyter'
+  serverWsUrl='ws://localhost:8686/api/jupyter'
+  token='60c1661cc408f978c309d04157af55c9588ff9557c9380e4fb50785750703da6'
+ />
+
+  </TabItem>
+
+  <TabItem value="ptycho-reconstruct" label="Reconstruction">
+
+<JupyterCell
+  source= {`# reconstruct
+ptycho = ptycho.reconstruct(
+    reset = True,
+    max_iter = 4,
+    gaussian_filter_sigma = 0.3,
+).visualize(
+)`}
+  serverHttpUrl='http://localhost:8686/api/jupyter'
+  serverWsUrl='ws://localhost:8686/api/jupyter'
+  token='60c1661cc408f978c309d04157af55c9588ff9557c9380e4fb50785750703da6'
+ />
+
+  </TabItem>
+
+</Tabs>
+

@@ -1,0 +1,92 @@
+---
+id: single-particle-analysis_intro
+sidebar_position: 1
+title: Overview & Simulations
+hide_table_of_contents: true
+hide_title: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+import SPASchematic from '@site/static/img/SPA-schematic.png';
+import T20SProteasome from '@site/static/img/T20S-proteasome.gif';
+import T20SPotential from '@site/static/img/T20S-potential.png';
+import T20SDiffraction from '@site/static/img/T20S-dps.png';
+import T20SRecon from '@site/static/img/T20S-recon.png';
+
+import OutlineImageLight from '@site/static/img/outline_slide_light_p2.svg';
+
+<OutlineImageLight width="240px" height="60px" className="outline-header"/>
+
+## Single Particle Analysis
+
+<Tabs>
+
+<TabItem value="spa-schematic" label="SPA Schematic" default>
+
+- Reconstructs 3D volumes of homogeneous samples
+- Vitreous-ice embedded samples
+- Large number of cryo-EM randomly-oriented micrographs
+
+<img src={SPASchematic} width="80%" height="auto"/>
+
+<details>
+<summary>  Typical Workflow: </summary> 
+
+- Obtaining cryo-EM micrographs
+- Automated "particle" identification
+- Class averaging
+- Orientation estimation
+- Tomographic reconstruction
+
+</details>
+
+</TabItem>
+
+<TabItem value="stem-simulations" label="STEM Simulations">
+
+<Tabs>
+<TabItem value="emd-volume" label="T20S Proteasome">
+
+- We use a solved structure, namely the T20S proteasome
+
+<img src={T20SProteasome} width="40%" height="auto"/>
+
+</TabItem>
+
+<TabItem value="potential" label="Projected Potential">
+
+- We use a solved structure, namely the T20S proteasome
+- We simulate a large FOV using 16x16 tiled proteasome volumes, each randomly rotated about its center
+  - 300 kV, 2.5μm defocus, 3 mrad convergence angle
+
+<img src={T20SPotential} width="80%" height="auto"/>
+
+</TabItem>
+
+<TabItem value="diffraction" label="Noisy Diffraction Patterns">
+
+- We use a solved structure, namely the T20S proteasome
+- We simulate a large FOV using 16x16 tiled proteasome volumes, each randomly rotated about its center
+  - 300 kV, 2.5μm defocus, 3 mrad convergence angle
+- We use a finite dose of 30 e/Å$^2$
+
+<img src={T20SDiffraction} width="80%" height="auto"/>
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="single-slice-recon" label="Single Slice Reconstruction">
+
+- We start by reconstructing the entire FOV using single-slice ptychography
+
+<img src={T20SRecon} width="80%" height="auto"/>
+ 
+</TabItem>
+
+</Tabs>
+

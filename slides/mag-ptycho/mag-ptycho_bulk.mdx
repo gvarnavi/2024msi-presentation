@@ -1,0 +1,91 @@
+---
+id: mag-ptycho_bulk
+sidebar_position: 2
+title: Bulk Antiferromagnets
+hide_table_of_contents: true
+hide_title: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+import BulkAtomicModelImage from '@site/static/img/NiO-bulk_atomic-model.svg';
+import BulkGroundTruthImage from '@site/static/img/NiO-bulk_ground-truth.png';
+import BulkNaiveImage from '@site/static/img/NiO-bulk_naive-recon.png';
+import BulkJointImage from '@site/static/img/NiO-bulk_joint-recon.png';
+import OutlineImageLight from '@site/static/img/outline_slide_light_p1.svg';
+
+<OutlineImageLight width="240px" height="60px" className="outline-header"/>
+
+## Bulk Antiferromagnets
+
+<Tabs>
+
+<TabItem value="atomic-model" label="Model" default>
+
+- Consider bulk antiferromagnetic  NiO
+  - $Ni_{\uparrow}$ (pink) spins up and $Ni_{\downarrow}$ (green) align on alternating [111] planes
+    
+<BulkAtomicModelImage width="100%" height="100%"/>
+
+</TabItem>
+  
+<TabItem value="ground-truth" label="Ground Truth">
+
+- Consider bulk antiferromagnetic  NiO
+  - $Ni_{\uparrow}$ (pink) spins up and $Ni_{\downarrow}$ (green) align on alternating [111] planes
+  - Magnetic contribution ~500x smaller than electrostatic contribution
+
+<img src={BulkGroundTruthImage} width="100%" height="auto"/>
+  
+</TabItem>
+  
+
+<TabItem value="naive-recon" label="Subtraction Reconstruction">
+
+- Electrostatic contribution &rarr; invariant under time-reversal symmetry
+- Magnetic contribution &rarr; changes sign under time-reversal symmetry
+  - Inversion-symmetry: "flip" sample and record two measurements:
+
+$$
+	\phi_e = \frac{1}{2}\left(\phi^{\rightarrow} {\color{#b880ff} +} \phi^{\leftarrow} \right) \qquad \text{and} \qquad
+	\phi_m = \frac{1}{2}\left(\phi^{\rightarrow} {\color{#b880ff} -} \phi^{\leftarrow} \right)
+$$
+
+<details>
+<summary> Reconstruction </summary>
+<img src={BulkNaiveImage} width="100%" height="auto"/>
+</details>  
+
+</TabItem>
+  
+<TabItem value="joint-recon" label="Joint Reconstruction">
+
+- Forward-model for our measurement as we "flip" the sample
+
+$$
+\begin{aligned}
+  \psi^{\rightarrow} &= \mathcal{P} \times \exp\left(i \left(V_p {\color{#b880ff} +} A_z\right)\right)  \\
+  \psi^{\leftarrow} &= \mathcal{P} \times \exp\left(i \left(V_p {\color{#b880ff} -} A_z\right)\right)
+\end{aligned}
+$$
+  
+- Simultaneous electrostatic and magnetic adjoint operator:
+
+$$
+\begin{aligned}
+  \Delta V_p &\propto \overbrace{\Re\left\{ -i \exp(-i (V_p{\color{#b880ff} +}A_z)) \times \mathcal{P}^* \times \Delta \psi^{\rightarrow} \right\}}^{{\color{#b880ff} \text{Forward Measurement Contribution}}} {\color{#b880ff} +} \overbrace{\Re\left\{ -i \exp(-i (V_p{\color{#b880ff} -}A_z)) \times \mathcal{P}^* \times \Delta \psi^{\leftarrow} \right\}}^{{\color{#b880ff} \text{Reverse Measurement Contribution}}} \\
+  \Delta A_z & \propto \Re\left\{ -i \exp(-i (V_p{\color{#b880ff} +}A_z)) \times \mathcal{P}^* \times \Delta \psi^{\rightarrow} \right\} {\color{#b880ff} -} \Re\left\{-i \exp(-i (V_p{\color{#b880ff} -}A_z)) \times \mathcal{P}^* \times \Delta \psi^{\leftarrow} \right\}
+\end{aligned}
+$$
+    
+
+<details>
+<summary> Reconstruction </summary>
+<img src={BulkJointImage} width="100%" height="auto"/>
+</details>  
+  
+</TabItem>
+
+</Tabs>
+

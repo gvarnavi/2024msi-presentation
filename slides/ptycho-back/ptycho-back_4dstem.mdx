@@ -1,0 +1,30 @@
+---
+id: ptycho-back_4dstem
+sidebar_position: 1
+title: 4DSTEM
+hide_table_of_contents: true
+hide_title: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+import STEMSchematic from '@site/static/img/4DSTEM-defocused-labeled-optimized.gif';
+import Multislice4DstemComponent from '@site/src/components/Multislice4DstemComponent.js';
+import OutlineImageLight from '@site/static/img/outline_slide_light_m2.svg';
+
+<OutlineImageLight width="240px" height="60px" className="outline-header"/>
+
+## 4D Scanning Transmission Electron Microscopy
+
+<Tabs Lazy>
+  <TabItem value="schematic" label="Schematic Description" default>
+    <figure>
+      <img src={STEMSchematic} alt="4DSTEM Schematic" width="80%" height="auto"/>
+    </figure>
+  </TabItem>
+  <TabItem value="interactive-simulation" label="Interactive Simulation">
+    <Multislice4DstemComponent />
+  </TabItem>
+</Tabs>
+

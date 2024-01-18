@@ -1,0 +1,53 @@
+---
+id: ptycho-tomo_overview
+sidebar_position: 1
+title: Atomic Electron Tomography
+hide_table_of_contents: true
+hide_title: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+import SerialPtychoTomoSchematic from '@site/static/img/serial-ptycho-tomo-schematic.png';
+import JointPtychoTomoSchematic from '@site/static/img/mset-schematic.png';
+import OverlapTomoComparison from '@site/static/img/overlap-tomo-comparison.svg';
+import OutlineImageLight from '@site/static/img/outline_slide_light_0.svg';
+
+<OutlineImageLight width="240px" height="60px" className="outline-header"/>
+
+## Atomic Electron Tomography
+
+- Traditional atomic electron tomography techniques use inelastically-scattered electrons (HAADF)
+  - Easy to interpret, Z-contrast
+- "Serial" ptychographic tomography instead uses ptychographic reconstructions for the 2D projections
+  - More dose efficient, sensitive to light atoms
+- "Joint" ptychographic tomography takes this a step further, reconstructing the 3D volume directly
+  - Relaxed probe overlap requirements, effective missing-wedge regularization
+
+<details>
+
+<summary> Ptychographic Tomography </summary>
+
+<Tabs>
+  <TabItem value="serial-ptycho-tomo" label="Serial Ptycho-Tomography" default>
+    <figure>
+      <img src={SerialPtychoTomoSchematic} alt="Serial ptychographic tomography" width="80%" height="auto"/>
+      <figcaption>P Pelz et al., arXiv:2206.08958 (2022)</figcaption>
+    </figure>
+  </TabItem>
+  <TabItem value="joint-ptycho-tomo" label="Joint Ptycho-Tomography">
+    <figure>
+      <img src={JointPtychoTomoSchematic} alt="Joint ptychographic tomography" width="100%" height="auto"/>
+      <figcaption>J Lee et al., Phys. Rev. Applied 19, 054062 (2023)</figcaption>
+    </figure>
+  </TabItem>
+  <TabItem value="overlap-tomo-comparison" label="Comparison">
+    <figure>
+      <OverlapTomoComparison width="100%" height="100%"/>
+      <figcaption>G. Varnavides, S. Ribet et al,  arXiv:2309.05250 (2023)</figcaption>
+    </figure>
+  </TabItem>
+</Tabs>
+
+</details>

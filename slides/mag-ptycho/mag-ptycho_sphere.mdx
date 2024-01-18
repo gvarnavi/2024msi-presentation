@@ -1,0 +1,36 @@
+---
+id: mag-ptycho_sphere
+sidebar_position: 3
+title: Nanoparticle Antiferromagnets
+hide_table_of_contents: true
+hide_title: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+import OnePanelAnimation from '@site/static/img/NiO_sphere_animation_one-panel_compressed.gif'
+import TwoPanelsAnimation from '@site/static/img/NiO_sphere_animation_two-panels_compressed.gif'
+import ThreePanelsAnimation from '@site/static/img/NiO_sphere_animation_three-panels_compressed.gif'
+import OutlineImageLight from '@site/static/img/outline_slide_light_p1.svg';
+
+<OutlineImageLight width="240px" height="60px" className="outline-header"/>
+
+## NiO Sphere Magnetic Vector Potential
+
+- Consider an antiferromagnetic NiO sphere, ~6,500 atoms
+  - _Two_ orthogonal tilt-series, twelve degree increments
+- Need to enforce magnetic vector potential is divergence-free
+
+<Tabs>
+  <TabItem value="electrostatic-animation" label="Electrostatic Potential" default>
+    <img src={OnePanelAnimation} width="270px" height="270px"/>
+  </TabItem>
+  <TabItem value="magnetic-animation" label="Az Magnetic Potential" default>
+    <img src={TwoPanelsAnimation} width="540px" height="270px"/>
+  </TabItem>
+  <TabItem value="both-animation" label="Combined View" default>
+    <img src={ThreePanelsAnimation} width="810px" height="270px"/>
+  </TabItem>
+</Tabs>
+

@@ -1,0 +1,38 @@
+---
+id: ptycho-back_epie
+sidebar_position: 3
+title: Electron Ptychography
+hide_table_of_contents: true
+hide_title: true
+---
+
+import EpieComponent from '@site/src/components/EpieComponent.js';
+import OutlineImageLight from '@site/static/img/outline_slide_light_m2.svg';
+
+<OutlineImageLight width="240px" height="60px" className="outline-header"/>
+
+## Electron Ptychography
+
+- Each diffraction pattern &rarr; non-convex set
+  - Phase problem: reconstruct probe $\hat{\mathcal{P}}$ and object $\hat{\mathcal{O}}$ from set of phase-less diffraction intensities $\{I\}$
+
+$$
+\begin{aligned}
+  \psi_j(\boldsymbol{r}) &= \hat{\mathcal{P}}(\boldsymbol{r}) \times \hat{\mathcal{O}}(\boldsymbol{r}-\boldsymbol{R}_j) \\
+  I_j(\boldsymbol{k}) &= \left| \mathcal{F}\left[\psi_j(\boldsymbol{r})\right]\right|^2
+\end{aligned}
+$$
+
+- Rich literature of reconstruction algorithms:
+  - "Fourier" projection
+    - Reconstructed probe and object accurately reproduce measured intensities
+  - "Overlap" projection
+    - Reconstructed probe and object are self-consistent with adjacent scanning positions
+
+<details>
+
+  <summary> Interactive Ptychography Simulation </summary>
+    <EpieComponent />
+</details>
+
+

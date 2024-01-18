@@ -1,0 +1,44 @@
+---
+id: single-particle-analysis_joint
+sidebar_position: 3
+title: Joint Ptycho-Tomography SPA
+hide_table_of_contents: true
+hide_title: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+import T20SAnimation from '@site/static/img/T20S-animation.gif';
+import T20SUncertainty from '@site/static/img/T20S-uncertainty.svg';
+import OutlineImageLight from '@site/static/img/outline_slide_light_p2.svg';
+
+<OutlineImageLight width="240px" height="60px" className="outline-header"/>
+
+## Joint Ptychographic-Tomography SPA
+
+<Tabs>
+
+<TabItem value="ideal-recon" label="Perfect Orientation Reconstruction" default>
+
+- We can instead use joint ptycho-tomography to reconstruct the volume directly from 4D-data
+  - "Ideal" 3 mrad resolution @ 300 kV ~ 6.5Å
+  - With perfect knowledge of the orientations at 30 e/Å$^2$, we obtain:
+
+<img src={T20SAnimation} width="40%" height="auto"/>
+
+</TabItem>
+
+<TabItem value="uncertainty-quantification" label="Estimated Orientation Error">
+
+- We can instead use joint ptycho-tomography to reconstruct the volume directly from 4D-data
+  - "Ideal" 3 mrad resolution @ 300 kV ~ 6.5Å
+  - With perfect knowledge of the orientations at 30 e/Å$^2$, we obtain:
+    - We can quantify the sensitivity of the reconstruction on the orientation estimation using the FSC
+
+<T20SUncertainty width="65%" height="100%"/>
+
+</TabItem>
+ 
+</Tabs>
+
